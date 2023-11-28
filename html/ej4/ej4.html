@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <section>
+            <p>Datalist</p>
+            <fieldset>
+                <label for="inputLista">Lista de Colores</label>
+                <input list="listaColores" name="inputLista">
+                <datalist>
+                    <option value="Azul"></option>
+                    <option value="Rojo"></option>
+                    <option value="Amarillo"></option>
+                </datalist>
+            </fieldset>
+        </section>
+        <section>
+            <p> Url input</p>
+            <fieldset>
+                <label for="urlInput">Ingresa una URL:</label>
+                <input list="sitiosSugeridos" type="url"  pattern="https://.*" size="30" 
+                id="urlInput" name="urlInput" placeholder="https://www.ejemplo.com" required>
+                
+                <!-- Datalist con sugerencias -->
+                <datalist id="sitiosSugeridos">
+                    <option value="https://www.ejemplo1.com">
+                    <option value="https://www.ejemplo2.com">
+                    <option value="https://www.ejemplo3.com">
+                    <!-- Agrega más opciones según sea necesario -->
+                </datalist>
+            </fieldset>
+        </section>
+        <section>
+            <p> Url input</p>
+            <fieldset>
+                <label for="urlInput">Range</label>
+                <label for="rangoInput">Selecciona un valor:</label>
+                <input type="range" id="rangoInput" name="rangoInput" min="0" max="100" step="1" value="50" list="valoresSugeridos">
+
+                <!-- Datalist con opciones sugeridas -->
+                <datalist id="valoresSugeridos">
+                    <option value="0">
+                    <option value="25">
+                    <option value="50">
+                    <option value="75">
+                    <option value="100">
+                </datalist>
+
+            </fieldset>
+        </section>
+    </form>
+</body>
+</html>
