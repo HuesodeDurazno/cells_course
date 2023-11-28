@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Productos</title>
+    <style>
+        fieldset {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Fieldset para Datos del Producto -->
+<fieldset>
+    <legend>Datos del Producto</legend>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" required>
+
+    <label for="descripcion">Descripción:</label>
+    <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+
+    <label for="foto">Foto:</label>
+    <input type="file" id="foto" name="foto" accept="image/*" required>
+
+    <label for="contadorVisitas">Contador de Visitas:</label>
+    <select id="contadorVisitas" name="contadorVisitas">
+        <option value="1">1 vez</option>
+        <option value="5">5 veces</option>
+        <option value="10">10 veces</option>
+    </select>
+</fieldset>
+
+<!-- Fieldset para Precio e Impuestos -->
+<fieldset>
+    <legend>Precio e Impuestos</legend>
+    <label for="precio">Precio:</label>
+    <input type="number" id="precio" name="precio" min="0" step="0.01" required>
+
+    <label for="impuesto">Impuesto:</label>
+    <select id="impuesto" name="impuesto">
+        <option value="0.05">5%</option>
+        <option value="0.1">10%</option>
+        <option value="0.15">15%</option>
+    </select>
+
+    <label>Tipo de Descuento:</label>
+    <label><input type="radio" name="descuento" value="ninguno" checked>Ninguno</label>
+    <label><input type="radio" name="descuento" value="descuento1">Descuento 1</label>
+    <label><input type="radio" name="descuento" value="descuento2">Descuento 2</label>
+    <label><input type="radio" name="descuento" value="descuento3">Descuento 3</label>
+</fieldset>
+
+<!-- Botón para Agregar Producto -->
+<button type="button" onclick="agregarProducto()">Agregar Producto</button>
+
+<!-- Tabla para mostrar estadísticas -->
+<table id="tablaProductos" data-numero-anos="5" data-numero-productos="10" data-nombre-productos="Productos A, B, C" data-titulo-tabla="Estadísticas de Productos">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Precio con Impuesto</th>
+            <th>Precio con Descuento</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Aquí se agregarán filas dinámicamente usando JavaScript -->
+    </tbody>
+</table>
+
+<script>
+    const descuentos = {"ninguno": 0, "descuento1": 0.1, "descuento2": 0.15, "descuento3": 0.2};
+
+    function agregarProducto() {
+        const tableBody = document.getElementById('tablaProductos').getElementsByTagName('tbody')[0];
+        const nombre = document.getElementById('nombre').value;
+        const descripcion = document.getElementById('descripcion').value;
+        const foto = document.getElementById('foto').value;
+        const contadorVisitas = document.getElementById('contadorVisitas').value;
+        const precio = parseFloat(document.getElementById('precio').value);
+        const impuesto = parseFloat(document.getElementById('impuesto').value);
+        const tipoDescuento = document.querySelector('input[name="descuento"]:checked').value;
+
+        const precioConImpuesto = precio * (1 + impuesto);
+        const precioConDescuento = precioConImpuesto * (1 - descuentos[tipoDescuento]);
+
+        const newRow = tableBody.insertRow();
+        newRow.insertCell(0).innerText = nombre;
+        newRow.insertCell(1).innerText = precioConImpuesto.toFixed(2);
+        newRow.insertCell(2).innerText = precioConDescuento.toFixed(2);
+    }
+
+    // Mostrar la tabla en la consola
+    console.table(document.getElementById('tablaProductos'));
+</script>
+
+</body>
+</html>
