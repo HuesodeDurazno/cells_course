@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Tabla de Productos</title>
+</head>
+<body>
+
+    <h1>Productos Disponibles</h1>
+
+    <table class="product-table">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Descripción</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">Producto 1</td>
+                <td>Descripción del Producto 1</td>
+                <td>$19.99</td>
+            </tr>
+            <tr>
+                <!-- Esta celda está unificada con la celda de Producto 1 -->
+                <td>Detalles adicionales</td>
+                <td>$5.00</td>
+            </tr>
+            <tr>
+                <td>Producto 2</td>
+                <td>Descripción del Producto 2</td>
+                <td>$24.99</td>
+            </tr>
+            <tr>
+                <td colspan="2">Producto 3 (sin descripción adicional)</td>
+                <td>$14.99</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
