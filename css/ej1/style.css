@@ -1,0 +1,81 @@
+/* Resetear márgenes y rellenos para el body y ul */
+body, ul {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+}
+
+/* Estilo para el header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+
+/* Estilo para la navbar */
+nav {
+    background-color: #444;
+    padding: 0.5em;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0 1em;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Estilo para el contenedor principal */
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+/* Estilo para el main y el aside */
+main, aside {
+    box-sizing: border-box;
+}
+
+/* Estilo para el main ocupando dos tercios */
+main {
+    flex: 2;
+}
+
+/* Estilo para cada artículo */
+article {
+    background-color: #f4f4f4;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Estilo para el aside ocupando un tercio */
+aside {
+    background-color: #ddd;
+    flex: 1;
+}
+
+/* Estilo para el footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center
+}
